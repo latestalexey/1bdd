@@ -1,0 +1,23 @@
+{
+    "cmd": ["oscript", "-encoding=utf-8", "${project_path:${folder}}/../tests/testrunner.os","-run","$file"],
+    "file_regex": "^ *\\{Модуль (.+) / Ошибка в строке: ([0-9]+) / ()(.*)$",
+    "working_dir": "${project_path:${folder}}",
+    "selector": "source.bsl",
+    "variants": [
+        {
+            "name": "Show tests",
+
+            "cmd": ["oscript", "-encoding=utf-8", "${project_path:${folder}}/../tests/testrunner.os","-show","$file"]
+        },
+        {
+            "name": "Run all tests",
+
+            "cmd": ["oscript", "-encoding=utf-8", "${project_path:${folder}}/../tests/testrunner.os","-runall","tests"]
+        },
+        {
+            "name": "Run all tests and generate report (xddReportPath)",
+
+            "cmd": ["oscript", "-encoding=utf-8", "${project_path:${folder}}/../tests/testrunner.os","-runall", "tests", "xddReportPath", "."]
+        }
+    ]
+}
